@@ -418,7 +418,7 @@
 
 
 
-
+#+obselete
 (defmacro lambda/d ((&rest argl) &body body)
   "lambda with auto deconstruction of argument list.
    (let ((lst '((1 (2)) (3 (4)) (5 (6)))))
@@ -429,7 +429,12 @@
       (decon-walker argl body)
     `(lambda ,argl ,@body)))
 
-
+(defmacro lambda/d ((&rest argl) &body body)
+  (with-gensym-walker
+    `(lambda (g!arg-name)
+       (destructuring-bind ,@argl
+           g!arg-name
+         ,@body))))
 
 
 
