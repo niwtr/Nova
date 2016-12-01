@@ -12,12 +12,12 @@
           (path-state path) (path-total-cost path)))
 
 
-(defstruct (path (:print-function print-path))
-  state (previous nil) (cost-so-far 0) (total-cost 0))
-
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defvar achievement
-    '((1 2 3) (8 -1 4) (7 6 5))))
+    '((1 2 3) (8 -1 4) (7 6 5)))
+  (defstruct (path (:print-function print-path))
+    state (previous nil) (cost-so-far 0) (total-cost 0))
+)
 
 (defun locate-n (num)
   "locate num in a matrix"
@@ -123,10 +123,30 @@
     (= 0 (funcall (matrix-diff ideal-matrix)
                   x))))
 
-(path-states
- (a*-search (list (make-path :state '((2 8 3) (1 6 4) (7 -1 5))))
-            (achieve achievement)
-            #'next-grids
-            #'(lambda (&rest rst) 1)
-            (matrix-diff achievement)
-            #'equal))
+
+(defun is-solvable (mat)
+  "judge wether a matrix is solvable."
+  (lett (fmat (remove -1 (flatten mat)))
+    (zerop (mod
+            (loop
+               for i in (butlast fmat)
+               for j in (cdr fmat)
+               if (> i j)
+               sum 1 into count
+               finally (return count))
+            2))))
+
+
+
+(defun search! (initial achievement)
+  (when (is-solvable initial)
+    (path-states
+     (a*-search (list (make-path :state initial))
+                (achieve achievement)
+                #'next-grids
+                #'(lambda (&rest rst) 1)
+                (matrix-diff achievement)
+                #'equal))))
+
+(search! '((2 8 3) (1 6 4) (7 -1 5)) achievement)
+(search! '((-1 1 3) (4 2 5) (7 8 6)) '((1 2 3) (4 5 6) (7 8 -1)))
