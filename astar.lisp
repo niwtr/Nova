@@ -80,7 +80,7 @@
 
 (defun a*-search (paths goal-p succ cost-fn cost-left-fn
                   &optional (state= #'eql) old-paths)
-  (cond ((null paths) 'fail)
+  (cond ((null paths) nil)
         ((funcall goal-p (path-state (first paths)))
          (values (first paths) paths))
         (t (let* ((path (pop paths))
@@ -150,3 +150,4 @@
 
 (search! '((2 8 3) (1 6 4) (7 -1 5)) achievement)
 (search! '((-1 1 3) (4 2 5) (7 8 6)) '((1 2 3) (4 5 6) (7 8 -1)))
+(search! '((8 6 7) (2 5 4) (3 1 -1)) achievement)
