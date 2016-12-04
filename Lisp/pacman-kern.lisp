@@ -1,5 +1,10 @@
 (in-package :astar)
 
+(defpackage :pacman
+  (:use :astar :cl-user :common-lisp :excalibur))
+(in-package :pacman)
+
+
 (defun between (x y)
   (lambda (u)
     (and (>= u x) (<= u y))))

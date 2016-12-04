@@ -1,8 +1,12 @@
 (in-package :astar)
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defvar achievement
-    '((1 2 3) (8 -1 4) (7 6 5))))
 
+(defparameter achievement
+  '((1 2 3) (8 -1 4) (7 6 5)))
+
+
+(defun between (x y)
+  (lambda (u)
+    (and (>= u x) (<= u y))))
 
 (defun locate-n (num)
   "locate num in a matrix"
@@ -82,3 +86,42 @@
 (search! '((2 8 3) (1 6 4) (7 -1 5)) achievement)
 (search! '((-1 1 3) (4 2 5) (7 8 6)) '((1 2 3) (4 5 6) (7 8 -1)))
 (search! '((8 6 7) (2 5 4) (3 1 -1)) achievement)
+
+
+(defun start-server (port)
+  (usocket:socket-server "127.0.0.1" port #'(lambda (stream) (format stream "~a~%" "hello usocket"))))
+
+(defun start-client (ip port)
+  (let ((sock (usocket:socket-connect ip port)))
+    (progn
+      (force-output (usocket:socket-stream sock))
+      (do ((line
+            (read-line (usocket:socket-stream sock) nil)
+            (read-line (usocket:socket-stream sock) nil)))
+          ((not line))
+        (format t "~A" line)))))
+
+
+(defun start-echo-server (port)
+  "Listening on a port for a message, and print the received message."
+  (usocket:with-socket-listener (socket "127.0.0.1" port)
+    (usocket:wait-for-input socket)
+    (loop
+       (usocket:with-connected-socket (connection (usocket:socket-accept socket))
+         (format t "~a~%" (read-line (usocket:socket-stream connection)))
+         (princ (search! '((2 8 3) (1 6 4) (7 -1 5)) achievement)
+                     (usocket:socket-stream connection))
+
+         ))))
+
+(defun echo-serv ()
+  (start-echo-server 9990))
+
+(defun start-echo-client (port)
+  "Connect to a server and send a message."
+  (usocket:with-client-socket (socket stream "127.0.0.1" port)
+    (format stream "Hello world!~%")
+    (force-output stream)
+    (print (read-line stream))))
+
+

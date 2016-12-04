@@ -3,7 +3,8 @@
 
 
 (defpackage :astar
-  (:use :excalibur :cl-user :common-lisp))
+  (:use :excalibur :cl-user :common-lisp)
+  (:export #:path))
 (in-package :astar)
 
 (defun print-path (path &optional (stream t) depth)
@@ -66,7 +67,9 @@
                         state= old-paths)))))
 
 
-
+(let ((pack (find-package :astar)))
+  (do-all-symbols (sym pack) (when (eql (symbol-package sym) pack) (export sym))))
+	
 
 
 
