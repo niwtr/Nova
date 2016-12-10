@@ -46,6 +46,7 @@ private:
     list <Path> old_paths;
     map <Path, Path> path_precursor;
 
+    constexpr static int depth_limit=500;
 
 
 
@@ -75,7 +76,15 @@ public:
 
     bool search(Path & rst){
 
+        int depth=0;
+
         while(true) {
+
+            if((depth++)>depth_limit)
+            {
+                cout<<"Warning: Approaching depth limit, protentially no solution."<<endl;
+                return false;
+            }
 
             if (paths.empty())return false;
 
