@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE3D0363974C3AA79C97F2E2 /* path_pacman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3D09179A8CB655DF2842C4 /* path_pacman.cpp */; };
+		DE3D0688FD5F538DF867DE41 /* Path8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3D0CBF68DF91A4A75D0F4B /* Path8.cpp */; };
 		DE3D0D1C4D3CB5874707B084 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3D0DC3743BD87A80C73D4F /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,8 +25,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DE3D082F552DD844E9973B16 /* Path8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path8.h; sourceTree = "<group>"; };
+		DE3D09179A8CB655DF2842C4 /* path_pacman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = path_pacman.cpp; sourceTree = "<group>"; };
+		DE3D099F36DF5EE7D39F4DB5 /* path_pacman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = path_pacman.h; sourceTree = "<group>"; };
 		DE3D0BB174007188CDA3EB46 /* Nova-Kern */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Nova-Kern"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE3D0CBF68DF91A4A75D0F4B /* Path8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Path8.cpp; sourceTree = "<group>"; };
 		DE3D0DC3743BD87A80C73D4F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		DE3D0DED61BD1E8610FD8412 /* astar.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = astar.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +49,11 @@
 			isa = PBXGroup;
 			children = (
 				DE3D0DC3743BD87A80C73D4F /* main.cpp */,
+				DE3D0DED61BD1E8610FD8412 /* astar.hpp */,
+				DE3D0CBF68DF91A4A75D0F4B /* Path8.cpp */,
+				DE3D082F552DD844E9973B16 /* Path8.h */,
+				DE3D09179A8CB655DF2842C4 /* path_pacman.cpp */,
+				DE3D099F36DF5EE7D39F4DB5 /* path_pacman.h */,
 			);
 			path = "Nova-Kern";
 			sourceTree = "<group>";
@@ -113,6 +125,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3D0D1C4D3CB5874707B084 /* main.cpp in Sources */,
+				DE3D0688FD5F538DF867DE41 /* Path8.cpp in Sources */,
+				DE3D0363974C3AA79C97F2E2 /* path_pacman.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
