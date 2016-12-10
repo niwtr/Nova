@@ -83,6 +83,7 @@ public:
             if((depth++)>depth_limit)
             {
                 cout<<"Warning: Approaching depth limit, protentially no solution."<<endl;
+                rst=paths.front();
                 return false;
             }
 
