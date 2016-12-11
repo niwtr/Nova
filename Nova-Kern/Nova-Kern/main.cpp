@@ -34,28 +34,32 @@ int main(int argc, const char * argv[]) {
 
     /* digit 8 */
 
-    int init[3][3]={{2,8,3},{1,6,4},{7,-1,5}};
+    int init[3][3] = {{2, 8, 3}, {1, 6, 4}, {7, -1, 5}};
     //int init[3][3]={{2,3,8},{1,6,4},{7,-1,5}};
-    Path8 p=Path8(init);
+    Path8 p = Path8(init);
     a_star<Path8> astar_digit8;
-    astar_digit8.init_paths(p);
-    Path8 final_digit8; // to store the final path.
-    astar_digit8.search(final_digit8);
-
-    astar_digit8.traverse(final_digit8);//output the result
-
+    astar_digit8.init_path(p);
+    astar_digit8.search();
+    list<Path8> lp8;
+    astar_digit8.get_all_paths(lp8);//get all the paths to go.
+    for(auto _p : lp8){
+        _p.output();
+    }
 
 
     /* pacman */
 
-    path_pacman pp=path_pacman(pair<int,int>(0,0));
-    pp.set_destination(pair<int,int>(9,9));
-    a_star<path_pacman> astar_pacman;
-    astar_pacman.init_paths(pp);
-    path_pacman final_pacman; // to store the final path.
-    astar_pacman.search(final_pacman);
-    astar_pacman.traverse(final_pacman); //output the result.
+    path_pacman pp1=path_pacman(pair<int,int>(0,0));
 
+    pp1.set_destination(pair<int,int>(9,9));
+
+    a_star<path_pacman> astar_pacman1;
+    astar_pacman1.init_path(pp1);
+
+    astar_pacman1.search();
+    path_pacman pnext;
+    if(astar_pacman1.get_next_path(pp1, pnext))//get next path to go.
+        pnext.output();
 
 
     return 0;
