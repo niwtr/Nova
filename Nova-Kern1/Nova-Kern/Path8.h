@@ -48,7 +48,10 @@ public:
     inline int cost_left_fn(Path p){return this->matrix_diff(this->achievement);}
 
     /* used in the map */
+
     bool operator<(const Path8 &p) const{return (this->ID < p.ID);}
+
+
 
     /* use state eq */
     bool operator==(const Path8 &p)const{
