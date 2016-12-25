@@ -114,6 +114,7 @@ int main(int argc,char * argv[]) {
         }
     }
     w.init_button();
+    w.init_INIT();
     //int init[3][3]={{2,3,8},{1,6,4},{7,-1,5}};
     /*Path8 p = Path8(init);
     a_star<Path8> astar_digit8;
@@ -136,6 +137,7 @@ int main(int argc,char * argv[]) {
     }
     */
     w.show();
+    //w.init_INIT();
 
 
 

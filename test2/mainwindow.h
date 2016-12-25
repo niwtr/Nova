@@ -32,6 +32,8 @@ public:
     int INIT[3][3];
     int TEMP[3][3];
     int change_location[3][3][2];
+    void init_INIT();
+    int Solvable[81][3][3];
   //  auto generic_move_in(auto any, auto margin, auto duration, int dir, auto group);
    // auto generic_move_in1(auto any, auto margin, auto duration, int dir, auto group1);
 
