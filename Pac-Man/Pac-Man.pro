@@ -1,8 +1,10 @@
-QT += qml quick
+QT += qml quick quickcontrols2
 
 CONFIG += c++11
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    actor.cpp \
+    testactor.cpp
 
 RESOURCES += qml.qrc
 
@@ -18,3 +20,7 @@ DISTFILES += \
     android/build.gradle
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+
+HEADERS += \
+    actor.h \
+    testactor.h

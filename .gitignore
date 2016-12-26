@@ -71,4 +71,7 @@ Thumbs.db
 *.dll
 *.exe
 
-./build-Pac-Man-Android_for_armeabi_v7a_GCC_4_9_Qt_5_7_0-Release
+/build-Pac-Man-Android_for_armeabi_v7a_GCC_4_9_Qt_5_7_0-Release
+/build-Pac-Man-Android_for_armeabi_v7a_GCC_4_9_Qt_5_7_0-Debug
+/build-Pac-Man-Android_for_x86_GCC_4_9_Qt_5_7_0-Debug
+/build-Pac-Man-Android_for_x86_GCC_4_9_Qt_5_7_0-Release
