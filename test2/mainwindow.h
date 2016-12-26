@@ -20,13 +20,20 @@ private:
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void init_button(int[3][3]);
+    //void init_button(int[3][3]);
+    void init_button();
     auto find_p(int);
     void move_button(vector<vector<int> >  m);
     void change_button(vector<vector<int> >);
     void change_button1(vector<vector<int> >);
+    void init_button_location();
     vector<vector<int> > mm;
     vector<vector<int> > location;
+    int INIT[3][3];
+    int TEMP[3][3];
+    int change_location[3][3][2];
+    void init_INIT();
+    int Solvable[81][3][3];
   //  auto generic_move_in(auto any, auto margin, auto duration, int dir, auto group);
    // auto generic_move_in1(auto any, auto margin, auto duration, int dir, auto group1);
 
@@ -52,6 +59,8 @@ private slots:
     void on_pushButton_9_clicked();
 */
 
+    void on_pushButton_10_clicked();
+    void on_pushButton_11_clicked();
 };
 
 #endif // MAINWINDOW_H

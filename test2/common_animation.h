@@ -159,6 +159,18 @@ auto generic_move_in1=[](auto any, auto margin, auto duration, int dir,auto grou
 
 };
 
+auto generic_move_in_4init=[](auto any, auto margin_lr, auto margin_ud,auto duration){
+    QPoint ank=any->pos();
+    QPropertyAnimation *ani1 = new QPropertyAnimation(any, "geometry");
+    ani1->setDuration(duration);
+    ani1->setStartValue(QRect(ank.x(),ank.y(),any->width(),any->height()));
+    ani1->setEndValue(QRect(ank.x()+margin_ud,ank.y()+margin_lr,any->width(),any->height()));
+    ani1->setEasingCurve(QEasingCurve::OutQuart);//QEasingCurve::OutCurve);
+    ani1->start();
+    //connect(ani1, SIGNAL(finished()), any, SLOT(startAnimation()));
+
+};
+
 auto start_group_animation=[](auto group, auto group1){
     group->start();
     group1->start();

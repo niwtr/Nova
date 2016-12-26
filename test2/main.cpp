@@ -79,9 +79,9 @@
 #include <algorithm>
 #include <list>
 #include <map>
-#include "astar.hpp"
+//#include "astar.hpp"
 #include "path_pacman.h"
-#include "Path8.h"
+//#include "Path8.h"
 using std::vector;
 using std::merge;
 using std::list;
@@ -105,18 +105,29 @@ int main(int argc,char * argv[]) {
     QApplication a(argc, argv);
     MainWindow w;
 
-    int init[3][3] = {{2, 8, 3}, {1, 6, 4}, {7, -1, 5}};
-
+    int init[3][3] = {{1, 2, 3}, {-1, 8, 4}, {7, 6, 5}};
+    //int init[3][3];
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            //init[i][j]=w.INIT[i][j];
+            w.INIT[i][j]=init[i][j];
+        }
+    }
+    w.init_button();
+    w.init_INIT();
     //int init[3][3]={{2,3,8},{1,6,4},{7,-1,5}};
-    Path8 p = Path8(init);
+    /*Path8 p = Path8(init);
     a_star<Path8> astar_digit8;
     astar_digit8.init_path(p);
     astar_digit8.search();
     list<Path8> lp8;
-    astar_digit8.get_all_paths(lp8);//get all the paths to go.
+    //int temp[3][3];
+    //temp=astar_digit8.get_all_paths(lp8);//get all the paths to go.
+    astar_digit8.get_all_paths(lp8);
     vector<vector<int> > draw;
     draw=astar_digit8.CHANGES;
-    w.init_button(init);
+    //w.init_button(init);
+    w.init_button();
     w.location=astar_digit8.calculate_location(astar_digit8.CHANGES,init);
     w.mm=astar_digit8.CHANGES;
     w.move_button(astar_digit8.CHANGES);
@@ -124,8 +135,9 @@ int main(int argc,char * argv[]) {
     for(auto _p : lp8){
         _p.output();
     }
-
+    */
     w.show();
+    //w.init_INIT();
 
 
 

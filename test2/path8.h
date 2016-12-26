@@ -56,6 +56,10 @@ public:
         return true;
     }
 
+    int return_value(int rv_i, int rv_j){
+        return this->state[rv_i][rv_j];
+    }
+
     inline void output(){this->printm();}
 
 

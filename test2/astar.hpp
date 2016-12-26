@@ -6,9 +6,6 @@
 #include <algorithm>
 #include <list>
 #include <map>
-#include <QVector>
-
-//using namespace std;
 
 
 namespace nova_kernel{
@@ -234,6 +231,14 @@ public:
             p1=copy_old_path(c);
             i++;
         }
+       /* Path pp=*container.end();
+        int temp[3][3];
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                temp[i][j]=pp.state[i][j];
+            }
+        }
+        return temp;*/
     }
 
 
