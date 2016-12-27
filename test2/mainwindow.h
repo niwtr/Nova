@@ -2,9 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QGridLayout>
 #include <vector>
 #include "common_animation.h"
 #include <QAbstractAnimation>
+#include "numblock.h"
+
 using std::vector;
 
 namespace Ui {
@@ -14,15 +17,14 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-private:
-    Ui::MainWindow *ui;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    //void init_button(int[3][3]);
+
+    void creatBlock();
     void init_button();
-    auto find_p(int);
+    NumBlock* find_p(int);
     void move_button(vector<vector<int> >  m);
     void change_button(vector<vector<int> >);
     void change_button1(vector<vector<int> >);
@@ -34,9 +36,15 @@ public:
     int change_location[3][3][2];
     void init_INIT();
     int Solvable[81][3][3];
-  //  auto generic_move_in(auto any, auto margin, auto duration, int dir, auto group);
-   // auto generic_move_in1(auto any, auto margin, auto duration, int dir, auto group1);
 
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+    auto findBut(QPoint point);
+    void exchange(int num1,int num2);
+    QPoint curpoint;
+    QPoint nextpoint;
+    int curBut;
+    int pointx,pointy;
 private slots:
     void onCurrentAnimationChanged(QAbstractAnimation *current);
     void onCurrentAnimationChanged1(QAbstractAnimation *current);
@@ -59,8 +67,12 @@ private slots:
     void on_pushButton_9_clicked();
 */
 
-    void on_pushButton_10_clicked();
     void on_pushButton_11_clicked();
+    void on_pushButton_init_clicked();
+
+private:
+    Ui::MainWindow *ui;
+    vector<NumBlock*> numBlock;
 };
 
 #endif // MAINWINDOW_H

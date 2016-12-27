@@ -164,7 +164,7 @@ auto generic_move_in_4init=[](auto any, auto margin_lr, auto margin_ud,auto dura
     QPropertyAnimation *ani1 = new QPropertyAnimation(any, "geometry");
     ani1->setDuration(duration);
     ani1->setStartValue(QRect(ank.x(),ank.y(),any->width(),any->height()));
-    ani1->setEndValue(QRect(ank.x()+margin_ud,ank.y()+margin_lr,any->width(),any->height()));
+    ani1->setEndValue(QRect(ank.x()+margin_lr,ank.y()+margin_ud,any->width(),any->height()));
     ani1->setEasingCurve(QEasingCurve::OutQuart);//QEasingCurve::OutCurve);
     ani1->start();
     //connect(ani1, SIGNAL(finished()), any, SLOT(startAnimation()));

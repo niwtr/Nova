@@ -49,7 +49,7 @@ private:
     Path end_path;
     map <Path, Path> path_precursor;
 
-    constexpr static int depth_limit=100;
+    constexpr static int depth_limit=300;
 
 
 
@@ -242,7 +242,7 @@ public:
     }
 
 
-    vector<vector<int> > calculate_location(vector<vector<int>> ch, int arry[3][3])
+    vector<vector<int> > calculate_location(auto ch, int arry[3][3])
     {
         int num1=0,num2=0;
         vector<int> temp;

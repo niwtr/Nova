@@ -5,7 +5,6 @@
 #-------------------------------------------------
 
 QT       += core gui
-CONFIG   += c++11
 CONFIG   += c++14
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,7 +13,8 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    numblock.cpp
 
 HEADERS  += mainwindow.h \
     def.h \
@@ -22,6 +22,12 @@ HEADERS  += mainwindow.h \
     pushbtn.h \
     path_pacman.h \
     astar.hpp \
-    Path8.h
+    Path8.h \
+    numblock.h
 
 FORMS    += mainwindow.ui
+
+DISTFILES +=
+
+RESOURCES += \
+    picture.qrc
