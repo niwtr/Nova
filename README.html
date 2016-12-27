@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-12-27 Tue 15:41 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="牛天睿" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. A<sup>*</sup>核心算法实现</a></li>
+<li><a href="#orgheadline2">2. 解决8数码问题</a></li>
+<li><a href="#orgheadline3">3. 解决迷宫问题</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> A<sup>*</sup>核心算法实现</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+以“通用性”为主要目标，让一切A<sup>*</sup>搜索问题都可以用这一个算法来实现。试图提供像C++ STL
+标准库那样广义通用的代码。
+</p>
+
+
+<p>
+最初使用Lisp语言来实现：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-lisp"><span style="color: #ff00ff;">(</span><span style="color: #4f97d7; font-weight: bold;">defun</span> <span style="color: #bc6ec5; font-weight: bold;">a*-search</span> <span style="color: keyboardFocusIndicatorColor;">(</span>paths goal-p succ cost-fn cost-left-fn
+                  <span style="color: #ce537a; font-weight: bold;">&amp;optional</span> <span style="color: #ee7600;">(</span>state= #'eql<span style="color: #ee7600;">)</span> old-paths<span style="color: keyboardFocusIndicatorColor;">)</span>
+  <span style="color: keyboardFocusIndicatorColor;">(</span><span style="color: #4f97d7; font-weight: bold;">cond</span> <span style="color: #ee7600;">(</span><span style="color: #00cd00;">(</span>null paths<span style="color: #00cd00;">)</span> nil<span style="color: #ee7600;">)</span>
+        <span style="color: #ee7600;">(</span><span style="color: #00cd00;">(</span>funcall goal-p <span style="color: #ff00ff;">(</span>path-state <span style="color: #008b8b;">(</span>first paths<span style="color: #008b8b;">)</span><span style="color: #ff00ff;">)</span><span style="color: #00cd00;">)</span>
+         <span style="color: #00cd00;">(</span>values <span style="color: #ff00ff;">(</span>first paths<span style="color: #ff00ff;">)</span> paths<span style="color: #00cd00;">)</span><span style="color: #ee7600;">)</span>
+        <span style="color: #ee7600;">(</span>t <span style="color: #00cd00;">(</span><span style="color: #4f97d7; font-weight: bold;">let*</span> <span style="color: #ff00ff;">(</span><span style="color: #008b8b;">(</span>path <span style="color: #ffd700;">(</span>pop paths<span style="color: #ffd700;">)</span><span style="color: #008b8b;">)</span>
+                  <span style="color: #008b8b;">(</span>state <span style="color: #ffd700;">(</span>path-state path<span style="color: #ffd700;">)</span><span style="color: #008b8b;">)</span><span style="color: #ff00ff;">)</span>
+             <span style="color: #ff00ff;">(</span>setf old-paths <span style="color: #008b8b;">(</span>insert-path path old-paths<span style="color: #008b8b;">)</span><span style="color: #ff00ff;">)</span>
+             <span style="color: #ff00ff;">(</span><span style="color: #4f97d7; font-weight: bold;">dolist</span> <span style="color: #008b8b;">(</span>state2 <span style="color: #ffd700;">(</span>funcall succ state<span style="color: #ffd700;">)</span><span style="color: #008b8b;">)</span>
+               <span style="color: #008b8b;">(</span><span style="color: #4f97d7; font-weight: bold;">let*</span> <span style="color: #ffd700;">(</span><span style="color: #0000cd;">(</span>cost <span style="color: #ee2c2c;">(</span>+ <span style="color: #ff00ff;">(</span>path-cost-so-far path<span style="color: #ff00ff;">)</span>
+                               <span style="color: #ff00ff;">(</span>funcall cost-fn state state2<span style="color: #ff00ff;">)</span><span style="color: #ee2c2c;">)</span><span style="color: #0000cd;">)</span>
+                      <span style="color: #0000cd;">(</span>cost2 <span style="color: #ee2c2c;">(</span>funcall cost-left-fn state2<span style="color: #ee2c2c;">)</span><span style="color: #0000cd;">)</span>
+                      <span style="color: #0000cd;">(</span>path2 <span style="color: #ee2c2c;">(</span>make-path
+                              <span style="color: #4f97d7;">:state</span> state2 <span style="color: #4f97d7;">:previous</span> path
+                              <span style="color: #4f97d7;">:cost-so-far</span> cost
+                              <span style="color: #4f97d7;">:total-cost</span> <span style="color: #ff00ff;">(</span>+ cost cost2<span style="color: #ff00ff;">)</span><span style="color: #ee2c2c;">)</span><span style="color: #0000cd;">)</span>
+                      <span style="color: #0000cd;">(</span>old nil<span style="color: #0000cd;">)</span><span style="color: #ffd700;">)</span>
+                 <span style="color: #ffd700;">(</span><span style="color: #4f97d7; font-weight: bold;">cond</span>
+                   <span style="color: #0000cd;">(</span><span style="color: #ee2c2c;">(</span>setf old <span style="color: #ff00ff;">(</span>find-path state2 paths state=<span style="color: #ff00ff;">)</span><span style="color: #ee2c2c;">)</span>
+                    <span style="color: #ee2c2c;">(</span><span style="color: #4f97d7; font-weight: bold;">when</span> <span style="color: #ff00ff;">(</span>better-path-p path2 old<span style="color: #ff00ff;">)</span>
+                      <span style="color: #ff00ff;">(</span>setf paths <span style="color: keyboardFocusIndicatorColor;">(</span>insert-path path2
+                                               <span style="color: #ee7600;">(</span>delete old paths<span style="color: #ee7600;">)</span><span style="color: keyboardFocusIndicatorColor;">)</span><span style="color: #ff00ff;">)</span><span style="color: #ee2c2c;">)</span><span style="color: #0000cd;">)</span>
+
+                   <span style="color: #0000cd;">(</span><span style="color: #ee2c2c;">(</span>setf old <span style="color: #ff00ff;">(</span>find-path state2 old-paths state=<span style="color: #ff00ff;">)</span><span style="color: #ee2c2c;">)</span>
+                    <span style="color: #ee2c2c;">(</span><span style="color: #4f97d7; font-weight: bold;">when</span> <span style="color: #ff00ff;">(</span>better-path-p path2 old<span style="color: #ff00ff;">)</span>
+                      <span style="color: #ff00ff;">(</span>setf paths <span style="color: keyboardFocusIndicatorColor;">(</span>insert-path path2 paths<span style="color: keyboardFocusIndicatorColor;">)</span><span style="color: #ff00ff;">)</span>
+                      <span style="color: #ff00ff;">(</span>setf old-paths <span style="color: keyboardFocusIndicatorColor;">(</span>delete old old-paths<span style="color: keyboardFocusIndicatorColor;">)</span><span style="color: #ff00ff;">)</span><span style="color: #ee2c2c;">)</span><span style="color: #0000cd;">)</span>
+                   <span style="color: #0000cd;">(</span>t <span style="color: #ee2c2c;">(</span>setf paths <span style="color: #ff00ff;">(</span>insert-path path2 paths<span style="color: #ff00ff;">)</span><span style="color: #ee2c2c;">)</span><span style="color: #0000cd;">)</span><span style="color: #ffd700;">)</span><span style="color: #008b8b;">)</span><span style="color: #ff00ff;">)</span>
+             <span style="color: #ff00ff;">(</span>a*-search paths goal-p succ cost-fn cost-left-fn
+                        state= old-paths<span style="color: #ff00ff;">)</span><span style="color: #00cd00;">)</span><span style="color: #ee7600;">)</span><span style="color: keyboardFocusIndicatorColor;">)</span><span style="color: #ff00ff;">)</span>
+</pre>
+</div>
+
+<p>
+上述算法是一个高阶函数，它轻松实现了通用性——任何新功能都只需要添加好子函数就可以了。
+比如：
+</p>
+
+<p>
+用Lisp来实现8数码问题：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-lisp"><span style="color: #ff00ff;">(</span>a*-search <span style="color: keyboardFocusIndicatorColor;">(</span>list <span style="color: #ee7600;">(</span>make-path <span style="color: #4f97d7;">:state</span> initial<span style="color: #ee7600;">)</span><span style="color: keyboardFocusIndicatorColor;">)</span>
+                <span style="color: keyboardFocusIndicatorColor;">(</span>achieve achievement<span style="color: keyboardFocusIndicatorColor;">)</span>
+                #'next-grids
+                #'<span style="color: keyboardFocusIndicatorColor;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #ee7600;">(</span><span style="color: #ce537a; font-weight: bold;">&amp;rest</span> rst<span style="color: #ee7600;">)</span> <span style="color: #a45bad;">1</span><span style="color: keyboardFocusIndicatorColor;">)</span>
+                <span style="color: keyboardFocusIndicatorColor;">(</span>matrix-diff achievement<span style="color: keyboardFocusIndicatorColor;">)</span>
+                #'equal<span style="color: #ff00ff;">)</span>
+</pre>
+</div>
+
+<p>
+用Lisp来求解迷宫问题：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-lisp"><span style="color: #ff00ff;">(</span>a*-search <span style="color: keyboardFocusIndicatorColor;">(</span>list <span style="color: #ee7600;">(</span>make-path <span style="color: #4f97d7;">:state</span> initial<span style="color: #ee7600;">)</span><span style="color: keyboardFocusIndicatorColor;">)</span>
+                <span style="color: keyboardFocusIndicatorColor;">(</span>arrive achievement<span style="color: keyboardFocusIndicatorColor;">)</span>
+                #'next-yx
+                #'<span style="color: keyboardFocusIndicatorColor;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #ee7600;">(</span><span style="color: #ce537a; font-weight: bold;">&amp;rest</span> rst<span style="color: #ee7600;">)</span> <span style="color: #a45bad;">1</span><span style="color: keyboardFocusIndicatorColor;">)</span>
+                <span style="color: keyboardFocusIndicatorColor;">(</span>distance goal<span style="color: keyboardFocusIndicatorColor;">)</span>
+                #'equal<span style="color: #ff00ff;">)</span>
+</pre>
+</div>
+
+
+<p>
+两者使用相同的代码就可以实现。
+</p>
+
+
+<p>
+后来，由于必须要在Windows平台实现GUI界面，因此不得不用C++重写。
+</p>
+
+<p>
+用C++实现的A<sup>*</sup>算法是直接由Lisp版本翻译过来的，同时运用了C++的一些高级功能来确保通用性。
+</p>
+
+<ol class="org-ol">
+<li>模板泛型类。对A<sup>*</sup>算法操作的节点类型（Path）的状态（State）做类型抽象。</li>
+</ol>
+
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold;">template</span> <span style="color: #ff00ff;">&lt;</span><span style="color: #4f97d7; font-weight: bold;">typename</span> <span style="color: #ce537a; font-weight: bold;">State</span><span style="color: #ff00ff;">&gt;</span>
+<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: #ff00ff;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">protected</span>:
+        <span style="color: #ce537a; font-weight: bold;">State</span> <span style="color: #7590db;">state</span>;
+        <span style="color: #ce537a; font-weight: bold;">State</span> <span style="color: #7590db;">achievement</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">ID</span>;
+...
+<span style="color: #ff00ff;">}</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold;">template</span><span style="color: #ff00ff;">&lt;</span><span style="color: #4f97d7; font-weight: bold;">typename</span> <span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: #ff00ff;">&gt;</span>
+<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">a_star</span> <span style="color: #ff00ff;">{</span>
+<span style="color: #4f97d7; font-weight: bold;">private</span>:
+    <span style="color: #ce537a; font-weight: bold;">list</span> <span style="color: keyboardFocusIndicatorColor;">&lt;</span><span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: keyboardFocusIndicatorColor;">&gt;</span> <span style="color: #7590db;">paths</span>;
+    <span style="color: #ce537a; font-weight: bold;">list</span> <span style="color: keyboardFocusIndicatorColor;">&lt;</span><span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: keyboardFocusIndicatorColor;">&gt;</span> <span style="color: #7590db;">old_paths</span>;
+    <span style="color: #ce537a; font-weight: bold;">Path</span> <span style="color: #7590db;">end_path</span>;
+    <span style="color: #ce537a; font-weight: bold;">map</span> <span style="color: keyboardFocusIndicatorColor;">&lt;</span><span style="color: #ce537a; font-weight: bold;">Path</span>, <span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: keyboardFocusIndicatorColor;">&gt;</span> <span style="color: #7590db;">path_precursor</span>;
+    <span style="color: #4f97d7; font-weight: bold;">constexpr</span> <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">depth_limit</span>=<span style="color: #a45bad;">5000</span>;
+...
+<span style="color: #ff00ff;">}</span>
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>抽象类。要把A<sup>*</sup>算法应用到不同的工程问题上，只需要继承 <code>Path</code> 的基类，并重写基类要求的几个虚函数就可以了。比如</li>
+</ol>
+
+<p>
+解决迷宫问题：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">path_maze</span> : <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #a45bad;">nova_kernel</span>::<span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: #ff00ff;">&lt;</span><span style="color: #a45bad;">std</span>::<span style="color: #ce537a; font-weight: bold;">pair</span><span style="color: keyboardFocusIndicatorColor;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span>,<span style="color: #ce537a; font-weight: bold;">int</span><span style="color: keyboardFocusIndicatorColor;">&gt;</span><span style="color: #ff00ff;">&gt;</span>
+</pre>
+</div>
+
+<p>
+在迷宫问题中，表达搜索“状态”的类型是一个二元组（表示横纵坐标）。
+</p>
+
+
+<p>
+解决8数码问题：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Path8</span> : <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #a45bad;">nova_kernel</span>::<span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: #ff00ff;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: keyboardFocusIndicatorColor;">[</span><span style="color: #a45bad;">3</span><span style="color: keyboardFocusIndicatorColor;">][</span><span style="color: #a45bad;">3</span><span style="color: keyboardFocusIndicatorColor;">]</span><span style="color: #ff00ff;">&gt;</span>
+</pre>
+</div>
+
+<p>
+在8数码问题中，表达搜索“状态”类型的就是8数码的3x3矩阵。
+</p>
+
+<p>
+需要重载的虚函数有：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-cpp"><span style="color: #ce537a; font-weight: bold;">list</span><span style="color: #ff00ff;">&lt;</span><span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: keyboardFocusIndicatorColor;">&lt;</span>State<span style="color: keyboardFocusIndicatorColor;">&gt;</span><span style="color: #ff00ff;">&gt;</span> <span style="color: #bc6ec5; font-weight: bold;">get_next</span><span style="color: #ff00ff;">()</span>;         <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">&#29983;&#25104;&#19979;&#19968;&#27493;&#35201;&#25628;&#32034;&#30340;&#33410;&#28857;&#21015;&#34920;&#12290;*/</span>
+<span style="color: #ce537a; font-weight: bold;">bool</span> <span style="color: #bc6ec5; font-weight: bold;">is_goal</span><span style="color: #ff00ff;">()</span>;                       <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">&#21028;&#26029;&#24403;&#21069;&#33410;&#28857;&#26159;&#21542;&#30446;&#26631;&#12290;     */</span>
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">cost_fn</span><span style="color: #ff00ff;">(</span><span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: keyboardFocusIndicatorColor;">&lt;</span>State<span style="color: keyboardFocusIndicatorColor;">&gt;</span> <span style="color: #7590db;">next</span><span style="color: #ff00ff;">)</span>;        <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">&#32047;&#35745;&#25439;&#22833;&#20989;&#25968;f&#65288;&#36890;&#24120;&#35774;&#20026;1&#65289; */</span>
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">cost_left_fn</span><span style="color: #ff00ff;">(</span><span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: keyboardFocusIndicatorColor;">&lt;</span>State<span style="color: keyboardFocusIndicatorColor;">&gt;</span> <span style="color: #7590db;">next</span><span style="color: #ff00ff;">)</span>;   <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">&#31163;&#30446;&#26631;&#30340;&#36317;&#31163;&#20195;&#20215;&#20989;&#25968;       */</span>
+<span style="color: #ce537a; font-weight: bold;">bool</span> <span style="color: #4f97d7; font-weight: bold;">operator</span><span style="color: #bc6ec5; font-weight: bold;">&lt;</span><span style="color: #ff00ff;">(</span><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: keyboardFocusIndicatorColor;">&lt;</span>State<span style="color: keyboardFocusIndicatorColor;">&gt;</span> &amp;<span style="color: #7590db;">p</span><span style="color: #ff00ff;">)</span><span style="color: #4f97d7; font-weight: bold;">const</span>;<span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">&#29992;&#20110;std::map&#30340;&#25805;&#20316;&#31526;*/</span>
+<span style="color: #ce537a; font-weight: bold;">bool</span> <span style="color: #4f97d7; font-weight: bold;">operator</span><span style="color: #bc6ec5; font-weight: bold;">==</span><span style="color: #ff00ff;">(</span><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">Path</span><span style="color: keyboardFocusIndicatorColor;">&lt;</span>State<span style="color: keyboardFocusIndicatorColor;">&gt;</span> &amp;<span style="color: #7590db;">p</span><span style="color: #ff00ff;">)</span><span style="color: #4f97d7; font-weight: bold;">const</span>;<span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">&#21028;&#26029;&#20004;&#20010;*&#29366;&#24577;*&#26159;&#21542;&#30456;&#31561;*/</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> 解决8数码问题</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+只需要重载之前讨论的几个虚函数就可以了。
+</p>
+<ol class="org-ol">
+<li>将 <code>get_next()</code> 定义为*从当前状态可能衍生出来的状态*。返回一个状态列表，列表里至少有2个状态（方块位于犄角旮旯），</li>
+</ol>
+<p>
+最多为四个状态（方块位于中心）。比如
+</p>
+
+<!-- This HTML table template is generated by emacs 25.1.1 -->
+<table border="1">
+  <tr>
+    <td align="left" valign="top">
+      1&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      2&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      3&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      4&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      6&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      7&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      8&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      9&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+</table>
+
+<p>
+将会衍生出
+</p>
+
+<!-- This HTML table template is generated by emacs 25.1.1 -->
+<table border="1">
+  <tr>
+    <td align="left" valign="top">
+      1&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      3&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      4&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      2&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      6&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      7&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      8&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      9&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+</table>
+
+<p>
+and
+</p>
+
+<!-- This HTML table template is generated by emacs 25.1.1 -->
+<table border="1">
+  <tr>
+    <td align="left" valign="top">
+      1&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      2&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      3&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      4&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      6&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      7&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      8&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      9&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+</table>
+
+<p>
+and
+</p>
+
+<!-- This HTML table template is generated by emacs 25.1.1 -->
+<table border="1">
+  <tr>
+    <td align="left" valign="top">
+      1&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      2&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      3&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      4&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      6&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      7&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      8&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      9&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+</table>
+
+<p>
+and
+</p>
+
+<!-- This HTML table template is generated by emacs 25.1.1 -->
+<table border="1">
+  <tr>
+    <td align="left" valign="top">
+      1&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      2&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      3&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      4&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      8&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      6&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      7&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      9&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+</table>
+
+<p>
+四种状态。
+</p>
+<ol class="org-ol">
+<li>将 <code>is_goal()</code> 重载为和目标状态之间是否相等的谓词。</li>
+<li>将 <code>cost_fn()</code> 重载为1，效果就是以搜索深度为代价。</li>
+<li>将 <code>cost_left_fn()</code> 重载为放错的数码的个数。</li>
+<li>将 <code>等于号</code> 重载为判断两个状态是否相等的函数。（比较9个格子是否相等。）</li>
+</ol>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> 解决迷宫问题</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>将 <code>get_next()</code> 重载为生成*下一步有效坐标*的函数。站在 <code>(1,1)</code> ，下一步可能会走到 <code>(1,2)</code> 、 <code>(0,1)</code> 、 <code>(2,1)</code> 和 <code>(1,0)</code></li>
+</ol>
+<p>
+四个坐标。并需要从中筛选出那些不合法的坐标（撞墙！）。
+</p>
+
+<ol class="org-ol">
+<li>将 <code>is_goal()</code> 重载为和目标 <code>(M-2,N-2)</code> 之间是否相等的谓词。</li>
+
+<li>将 <code>cost_fn()</code> 重载为1，效果就是以搜索深度为代价。</li>
+
+<li>将 <code>cost_left_fn()</code> 重载为离目标之间的欧氏距离。</li>
+</ol>
+
+
+
+<p>
+迷宫小游戏的设计思路：
+</p>
+
+<p>
+迷宫的目标是以最小步数走到右下角的蓝色点。你的步数会影响最后的得分。
+</p>
+
+<p>
+你有两个特异能力：“预知”和“闪光”。“预知”可以看到从你当前位置到目标点的最短路径。“闪光”可以逆转迷宫（墙变路，路变墙）。
+</p>
+
+<p>
+两种特异能力的使用次数初始都是三个，但是可以通过收集来获取更多。（紫色的是“闪光”，青色的是“预知”）。
+</p>
+
+<p>
+游戏的目标是节省步数，以最小的步数走到目标。“最短路径”提供基准步数，如果你只是按照“预知”所求出的最短路径走到终点，你将会得到0分。
+</p>
+
+<p>
+巧妙地利用两大特异能力，可以极大地缩短你走到目标点所需要的步数。（运用一次“闪照”就允许你穿过一道墙。）
+</p>
+
+<p>
+你所节省的步数越多，最后的得分越高。
+</p>
+
+<p>
+游戏的关键点就是如何让步数做到最低。要尽量减少步数，你就需要看到那堵最关键的墙，然后穿过去。
+但是由于特异功能的使用次数是有限的，因此你不得不花费一些步数来去收集特异功能。
+如何找到一个平衡点，使最后的步数到达最小？
+当你消费完你的特异功能时，应该去收集一些新的特异功能，还是随着最短路径走到终点？玩家的规划才能就体现在此……
+</p>
+
+
+<p>
+@work NiwTR
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: 牛天睿</p>
+<p class="date">Created: 2016-12-27 Tue 15:41</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

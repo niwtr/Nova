@@ -39,16 +39,11 @@ using std::endl;
 
     template<typename Path>
 class a_star {
-
-
 private:
     list <Path> paths;
     list <Path> old_paths;
     Path end_path;
     map <Path, Path> path_precursor;
-
-
-
     constexpr static int depth_limit=5000;
 
 

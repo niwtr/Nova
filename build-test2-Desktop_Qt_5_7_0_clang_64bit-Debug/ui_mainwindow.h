@@ -36,6 +36,8 @@ public:
     QPushButton *pushButton_7;
     QPushButton *pushButton_8;
     QPushButton *pushButton_9;
+    QPushButton *pushButton_10;
+    QPushButton *pushButton_11;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -44,7 +46,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(227, 240);
+        MainWindow->resize(228, 283);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pushButton = new QPushButton(centralWidget);
@@ -74,10 +76,16 @@ public:
         pushButton_9 = new QPushButton(centralWidget);
         pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
         pushButton_9->setGeometry(QRect(140, 120, 71, 61));
+        pushButton_10 = new QPushButton(centralWidget);
+        pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
+        pushButton_10->setGeometry(QRect(0, 200, 75, 23));
+        pushButton_11 = new QPushButton(centralWidget);
+        pushButton_11->setObjectName(QStringLiteral("pushButton_11"));
+        pushButton_11->setGeometry(QRect(140, 200, 75, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 227, 23));
+        menuBar->setGeometry(QRect(0, 0, 228, 23));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -103,6 +111,8 @@ public:
         pushButton_7->setText(QApplication::translate("MainWindow", "7", 0));
         pushButton_8->setText(QApplication::translate("MainWindow", "8", 0));
         pushButton_9->setText(QString());
+        pushButton_10->setText(QApplication::translate("MainWindow", "init", 0));
+        pushButton_11->setText(QApplication::translate("MainWindow", "start", 0));
     } // retranslateUi
 
 };
