@@ -365,49 +365,25 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton) {
-//        qDebug() << "释放左键\n" << event->pos() << endl;
+        qDebug() << "释放左键\n" << event->pos() << endl;
         nextpoint=event->pos();
-        if(nextpoint.y()<=180&&nextpoint.x()<=210){
-            int rowchange=nextpoint.x()-curpoint.x();
-            int linechange=nextpoint.y()-curpoint.y();
+        if(nextpoint.y() >= 0 && nextpoint.y() <= 180 && nextpoint.x() >= 0 && nextpoint.x() <= 210){
+
             int num1,num2;
-            if(abs(rowchange)>=abs(linechange)){//横向移动
-                if(rowchange>0)//向右移动
-                {
-                    generic_move_in_4init(findBut(curpoint),70,0,1000);
-                    //findBut(curpoint)->setGeometry(location[cou][2],location[cou][3],p->width(),p->height());
-                    num1=curBut;
-                    generic_move_in_4init(findBut(nextpoint),-70,0,1000);
-                    num2=curBut;
-                    exchange(num1,num2);
-                }
-                if(rowchange<=0)
-                {
-                    generic_move_in_4init(findBut(curpoint),-70,0,1000);
-                    num1=curBut;
-                    generic_move_in_4init(findBut(nextpoint),70,0,1000);
-                    num2=curBut;
-                    exchange(num1,num2);
-                }
-            }
-            else{
-                if(linechange>0)//向下移动
-                {
-                    generic_move_in_4init(findBut(curpoint),0,60,1000);
-                    num1=curBut;
-                    generic_move_in_4init(findBut(nextpoint),0,-60,1000);
-                    num2=curBut;
-                    exchange(num1,num2);
-                }
-                if(linechange<=0)
-                {
-                    generic_move_in_4init(findBut(curpoint),0,-60,1000);
-                    num1=curBut;
-                    generic_move_in_4init(findBut(nextpoint),0,60,1000);
-                    num2=curBut;
-                    exchange(num1,num2);
-                }
-            }
+
+            NumBlock* block1 = findBut(curpoint);
+            num1=curBut;
+            NumBlock* block2 = findBut(nextpoint);
+            num2=curBut;
+
+            QPoint posChange = block1->pos() - block2->pos();
+            if(num1 == num2)
+                return;
+
+            generic_move_in_4init(block1, -posChange.x(), -posChange.y(), 1000);
+            generic_move_in_4init(block2, posChange.x(), posChange.y(), 1000);
+
+            exchange(num1,num2);
         }
     }
 
