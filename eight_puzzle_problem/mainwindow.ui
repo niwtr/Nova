@@ -23,6 +23,15 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton
+{
+font: 25 10pt &quot;微软雅黑 &quot;;
+border:2px groove gray;border-radius:10px;padding:2px 4px;
+}
+</string>
+    </property>
     <property name="text">
      <string>start</string>
     </property>
@@ -30,11 +39,20 @@
    <widget class="QPushButton" name="pushButton_init">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>200</y>
       <width>75</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton
+{
+font: 25 10pt &quot;微软雅黑 &quot;;
+border:2px groove gray;border-radius:10px;padding:2px 4px;
+}
+</string>
     </property>
     <property name="text">
      <string>init</string>

@@ -31,3 +31,5 @@ DISTFILES +=
 
 RESOURCES += \
     picture.qrc
+
+RC_FILE=icon.rc

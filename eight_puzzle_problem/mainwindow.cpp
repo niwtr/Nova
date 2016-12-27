@@ -148,8 +148,8 @@ void MainWindow::creatBlock() {
     for(int i = 0; i < 3; i++) {
         for(int j = 0; j < 3; j++) {
             NumBlock *block = new NumBlock(this);
-            if(i != 2 || j != 2)
-                block->setText(QString::number(i*3+j+1));
+//            if(i != 2 || j != 2)
+//                block->setText(QString::number(i*3+j+1));
             block->setGeometry(j*70,i*60,71,61);
 
             numBlock.push_back(block);
@@ -257,8 +257,8 @@ void MainWindow::move_button(vector<vector<int> >  move)
         xy[1]=location[nn][1];
         xy1[0]=location[nn][2];
         xy1[1]=location[nn][3];
-        generic_move_in(numBlock[8],count2,2000,m[1],group,xy);
-        generic_move_in1(p,count2,2000,count1,group1,xy1);
+        generic_move_in(numBlock[8],count2,1000,m[1],group,xy);
+        generic_move_in1(p,count2,1000,count1,group1,xy1);
         nn++;
     }
     start_group_animation(group,group1);
@@ -357,7 +357,7 @@ auto MainWindow::findBut(QPoint point)
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton) {
-        qDebug() << "按下左键\n" << event->pos() << endl;
+        qDebug() << "pressed " << event->pos() << endl;
         curpoint=event->pos();
     }
 }
@@ -365,7 +365,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton) {
-        qDebug() << "释放左键\n" << event->pos() << endl;
+        qDebug() << "released " << event->pos() << endl;
         nextpoint=event->pos();
         if(nextpoint.y() >= 0 && nextpoint.y() <= 180 && nextpoint.x() >= 0 && nextpoint.x() <= 210){
 

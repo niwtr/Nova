@@ -10,5 +10,6 @@
         <file>res/test_7.jpg</file>
         <file>res/test_8.jpg</file>
         <file>res/test_8_.jpg</file>
+        <file>icon.ico</file>
     </qresource>
 </RCC>
