@@ -9,6 +9,8 @@ In this software, we provide:
 ## Build
 - C++ A* API: Compile with **-std=c++14** turned on.
 - Demo: Build with Qt 5.5+. Tested well on Mac OS X 10.11. 
+
+
 ## License 
 MIT for C++ A* API, LGPL v3 for Demo.
 
