@@ -63,9 +63,9 @@ bool path_maze::is_goal()
            );
 }
 
-int path_maze::cost_fn(path_maze next){return 1;}
+int path_maze::cost_fn(path_maze & next){return 1;}
 
-int path_maze::cost_left_fn(path_maze next) {
+int path_maze::cost_left_fn(path_maze & next) {
     int diffy=this->state.i-next.get_state().i,
     diffx=this->state.j-next.get_state().j;
     return (int)sqrt(diffx*diffx+diffy*diffy);

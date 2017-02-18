@@ -37,7 +37,7 @@ private:
 
     int magic;
     int films;
-    nova_kernel::a_star<path_maze> Agent;
+    astar_api::a_star<path_maze> Agent;
     Maze **matrix;
     stack<Maze> *MazeStack;//a stack to storage the maze node
     vector<Maze> *FinalPath;//a vector to storage the maze path.

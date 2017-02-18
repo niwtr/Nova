@@ -32,7 +32,7 @@ public:
     int j;
 };
 
-class path_maze : public nova_kernel::Path<cell>
+class path_maze : public astar_api::Path<cell>
 {
 
 private:
@@ -60,8 +60,8 @@ public :
 
     inline cell get_state(){return this->state;}
     bool is_goal();
-    int cost_fn(path_maze next);
-    int cost_left_fn(path_maze next);
+    int cost_fn(path_maze & next);
+    int cost_left_fn(path_maze & next);
     bool operator<(const path_maze & p) const;
     bool operator==(const path_maze & p) const;
 
