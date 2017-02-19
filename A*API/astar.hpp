@@ -27,7 +27,7 @@ using std::endl;
 
         double total_cost;
         double cost_so_far;
-        list<Path<State>> & get_next()              =delete;
+        list<Path<State>> get_next()                =delete;
         bool is_goal()                              =delete;
         int cost_fn(Path<State> & next)             =delete;
         int cost_left_fn(Path<State> & next)        =delete;
